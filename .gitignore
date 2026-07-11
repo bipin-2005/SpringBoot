@@ -1,0 +1,107 @@
+# ==========================
+# IntelliJ IDEA
+# ==========================
+.idea/
+**/.idea/
+*.iml
+*.ipr
+*.iws
+out/
+**/out/
+
+# ==========================
+# Maven
+# ==========================
+target/
+**/target/
+.mvn/timing.properties
+
+# Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+# ==========================
+# Gradle
+# ==========================
+.gradle/
+build/
+**/build/
+
+# ==========================
+# Eclipse
+# ==========================
+.project
+.classpath
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+
+# ==========================
+# NetBeans
+# ==========================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ==========================
+# VS Code
+# ==========================
+.vscode/
+
+# ==========================
+# Java
+# ==========================
+*.class
+*.jar
+*.war
+*.ear
+
+# ==========================
+# Logs
+# ==========================
+*.log
+logs/
+*.out
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================
+# Environment Files
+# ==========================
+.env
+.env.*
+application-local.properties
+application-dev.properties
+
+# ==========================
+# Temporary Files
+# ==========================
+*.tmp
+*.temp
+*.swp
+*~
+
+# ==========================
+# Coverage Reports
+# ==========================
+coverage/
+jacoco.exec
+
+# ==========================
+# Test Reports
+# ==========================
+surefire-reports/
+failsafe-reports/
+
+# ==========================
+# Dependency Cache
+# ==========================
+dependency-reduced-pom.xml
