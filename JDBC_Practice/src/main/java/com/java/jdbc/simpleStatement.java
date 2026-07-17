@@ -83,9 +83,12 @@ public class simpleStatement {
                 int marks = input.nextInt();
 
                 query=("INSERT INTO Student(id,name,age,course,marks) VALUES("+id+",'"+name+"',"+age+",'"+course+"',"+marks+")");
-                stmt.executeUpdate(query);
-
+                int rowsAffected = stmt.executeUpdate(query);
+                if(rowsAffected>0){
                 System.out.print("Record inserted successfully");
+                }else{
+                    System.out.println("Failed to insert rows ");
+                }
             }
             else if(option ==2){
                 rs=stmt.executeQuery("SELECT *FROM Student");
@@ -99,14 +102,63 @@ public class simpleStatement {
                     System.out.println("----------------------------");
                 }
             }
+            else if(option == 3){
+                System.out.println("Enter the Student ID : ");
+                int s_id= input.nextInt();
+                query = "SELECT id,name,age,course,marks FROM Student WHERE id = "+s_id;
+                rs = stmt.executeQuery(query);
+                if(rs.next()) {
+                    System.out.println("ID : " + rs.getInt("id"));
+                    System.out.println("Name : " + rs.getString("name"));
+                    System.out.println("Age : " + rs.getInt("age"));
+                    System.out.println("Course : " + rs.getString("course"));
+                    System.out.println("Marks : " + rs.getInt("marks"));
+                }else{
+                    System.out.println("Id does not exists");
+                }
+            }
+            else if(option ==4){
+                System.out.println("Enter the Id: ");
+                int s_id=input.nextInt();
+                System.out.println("Enter the marks : ");
+                int s_marks=input.nextInt();
+                query = "UPDATE Student SET marks ="+s_marks+" WHERE id ="+s_id;
+                int rowsAffected = stmt.executeUpdate(query);
+                if(rowsAffected>0){
+                    System.out.println("Marks Updated ");
+                }
+                else System.out.println("Failed to update ");
+            }
+
+            else if(option ==5){
+                System.out.println("Enter the ID :");
+                int s_id= input.nextInt();
+                query = "DELETE FROM Student WHERE id ="+s_id;
+                int rowsAffected = stmt.executeUpdate(query);
+                if(rowsAffected>0){
+                    System.out.println("Deleted successfully");
+                }else{
+                    System.out.println("ID doest not exits");
+                }
+            }
+            else if(option == 6){
+                int count = 0;
+                query="SELECT COUNT(*) AS total FROM Student";
+                rs= stmt.executeQuery(query);
+                if(rs.next()) {
+                    System.out.println("Total number of records are : " + rs.getInt("total"));
+                }
+
+            }
+
             else if(option ==7 ){
                 System.out.println("Thank you ");
                 break;
             }
+            else{
+                System.out.println("Invalid Input :<");
             }
-
-
-
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally{
