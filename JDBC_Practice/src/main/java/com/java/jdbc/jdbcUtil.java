@@ -18,7 +18,7 @@ public class jdbcUtil {
     public static Connection getConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3307/jdbclearning";
         String username = "root";
-        String password = "coolrajak";
+        String password = "";
         return DriverManager.getConnection(url,username,password);
     }
     //Closing the connection
